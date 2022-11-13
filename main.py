@@ -41,13 +41,10 @@ def add_client(client_id, first_name, last_name, e_mail):
 def add_namber(telephone_id, number):
     cur.execute("""
                 INSERT INTO telephone(telephone_id, number) VALUES (%s, %s);
-                """, (telephone_id,number,))
+                """, (telephone_id, number,))
     conn.commit()
     cur.execute("""SELECT * FROM telephone;""")
     print(cur.fetchall())
-
-
-
 
 
 
