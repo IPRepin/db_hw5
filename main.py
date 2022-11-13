@@ -35,11 +35,16 @@ def add_client(client_id, first_name, last_name, e_mail):
             INSERT INTO clients(first_name, last_name, e_mail, number) VALUES (%s, %s, %s, %s);
             """, (client_id, first_name, last_name, e_mail,))
     conn.commit()
-    cur.execute("""SELECT * FROM customers;""")
+    cur.execute("""SELECT * FROM clients;""")
     print(cur.fetchall())
 
-def add_namber(number):
-    pass
+def add_namber(telephone_id, number):
+    cur.execute("""
+                INSERT INTO telephone(telephone_id, number) VALUES (%s, %s);
+                """, (telephone_id,number,))
+    conn.commit()
+    cur.execute("""SELECT * FROM telephone;""")
+    print(cur.fetchall())
 
 
 
@@ -52,6 +57,7 @@ def main():
     last_name = input("Фамилия клиента: ")
     e_mail = input("Email клиента: ")
     add_client(first_name=first_name, last_name=last_name, e_mail=e_mail)
+    number = input('Телефон клиента: ')
 
 if __name__ == "__main__":
     main()
