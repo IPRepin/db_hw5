@@ -48,6 +48,8 @@ def add_namber(telephone_id, number):
 
 
 
+
+
 def main():
     create_table()
     first_name = input('Имя клиента: ')
@@ -55,6 +57,7 @@ def main():
     e_mail = input("Email клиента: ")
     add_client(first_name=first_name, last_name=last_name, e_mail=e_mail)
     number = input('Телефон клиента: ')
+    add_namber(number)
 
 if __name__ == "__main__":
     main()
